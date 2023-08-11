@@ -38,7 +38,7 @@ def train(
     # training hyperparams
     batch_size: int = 128,
     micro_batch_size: int = 4,
-    num_epochs: int = 20,
+    num_epochs: int = 1,
     learning_rate: float = 3e-4,
     cutoff_len: int = 256,
     val_set_size: int = 200, # 2000,
@@ -265,12 +265,12 @@ def train(
     )
     model.config.use_cache = False
 
-    old_state_dict = model.state_dict
-    model.state_dict = (
-        lambda self, *_, **__: get_peft_model_state_dict(
-            self, old_state_dict()
-        )
-    ).__get__(model, type(model))
+    # old_state_dict = model.state_dict
+    # model.state_dict = (
+    #     lambda self, *_, **__: get_peft_model_state_dict(
+    #         self, old_state_dict()
+    #     )
+    # ).__get__(model, type(model))
 
     if torch.__version__ >= "2" and sys.platform != "win32":
         model = torch.compile(model)
@@ -294,4 +294,6 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    fire.Fire(train(args.base_model, args.data_path, args.output_dir))
+    # print(args.base_model)
+    train(args.base_model, args.data_path, args.output_dir)
+    # fire.Fire(train(args.base_model, args.data_path, args.output_dir))
