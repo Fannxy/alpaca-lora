@@ -1,0 +1,5 @@
+{
+    "base_model" : "/app/alpaca-lora/sauterne/LLaMA/weights",
+    "data_path" : "/app/alpaca-lora/sauterne/baichuan/LLaMA-Efficient-Tuning/data/eleqa.json",
+    "output_dir" : "/app/alpaca-lora/sauterne/LLaMA/tuned_model"
+}

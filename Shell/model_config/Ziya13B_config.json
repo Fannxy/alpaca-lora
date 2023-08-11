@@ -1,0 +1,5 @@
+{
+    "base_model" : "/app/alpaca-lora/sauterne/ziya/Ziya-LLaMA-13B",
+    "data_path" : "/app/alpaca-lora/sauterne/baichuan/LLaMA-Efficient-Tuning/data/eleqa.json",
+    "output_dir" : "/app/alpaca-lora/sauterne/ziya/Ziya-LLaMA-13B-tuned/eleqa_20epoch_lora"
+}
